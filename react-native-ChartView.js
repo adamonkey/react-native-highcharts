@@ -40,7 +40,7 @@ let init = `<html>
                                       : '<script src="https://code.highcharts.com/highcharts.js"></script>'}
             <script src="https://code.highcharts.com/modules/exporting.js"></script>
             <script>
-                var chart = Highcharts.chart('container', `,
+                var chart = Highcharts.chart('container', `;
 let end =  `    );
 
                 chart.reflow();
