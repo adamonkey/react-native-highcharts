@@ -11,7 +11,12 @@ import {
 
 const win = Dimensions.get('window');
 
-let init = `<html>
+class ChartWeb extends Component {
+    constructor(props){
+        super(props);
+
+        this.state={
+            init1: `<html>
         <head>
             <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
             <style media="screen" type="text/css">
@@ -40,8 +45,8 @@ let init = `<html>
                                       : '<script src="https://code.highcharts.com/highcharts.js"></script>'}
             <script src="https://code.highcharts.com/modules/exporting.js"></script>
             <script>
-                var chart = Highcharts.chart('container', `;
-let end =  `    );
+                var chart = Highcharts.chart('container', `,
+            end1: `    );
 
                 chart.reflow();
 
@@ -50,12 +55,6 @@ let end =  `    );
             </script>
         </body>
     </html>`,
-
-class ChartWeb extends Component {
-    constructor(props){
-        super(props);
-
-        this.state={
             init:`<html>
                     <style media="screen" type="text/css">
                     #container {
@@ -107,7 +106,7 @@ class ChartWeb extends Component {
 
 
         config = JSON.parse(config)
-        let concatHTML = `${init}${flattenObject(config)}${end}`;
+        let concatHTML = this.state.init1 + `${flattenObject(config)}` + this.state.end1;
 
         return (
             <WebView
